@@ -34,6 +34,8 @@ provider "vsphere" {
 }
 
 provider "nsxt" {
+  allow_unverified_ssl = true
+  max_retries          = 2
 }
 
 provider "ad" {
