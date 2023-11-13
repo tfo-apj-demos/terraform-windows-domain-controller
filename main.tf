@@ -1,7 +1,5 @@
-
-
 data "nsxt_policy_ip_pool" "this" {
-  display_name = "10 - gcve-foundations"
+  display_name = "10 - gcve-foundations'"
 }
 
 resource "nsxt_policy_ip_address_allocation" "this" {
