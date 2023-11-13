@@ -1,12 +1,4 @@
 terraform {
-  cloud {
-    organization = "tfo-apj-demos"
-
-    workspaces {
-      project = "10 - gcve-foundations"
-      name    = "gcve-dc-0"
-    }
-  }
   required_providers {
     vsphere = {
       source  = "hashicorp/vsphere"
