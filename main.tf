@@ -2,6 +2,13 @@ data "nsxt_policy_ip_pool" "this" {
   display_name = "10 - gcve-foundations"
 }
 
+data "hcp_packer_image" "base-windows-2022" {
+  bucket_name    = "base-windows-2022"
+  channel        = "latest"
+  cloud_provider = "vsphere"
+  region         = "Datacenter"
+}
+
 resource "nsxt_policy_ip_address_allocation" "this" {
   display_name = "dc-0"
   description  = "Terraform provisioned Ip Address Allocation"
