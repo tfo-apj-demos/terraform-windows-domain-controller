@@ -18,7 +18,7 @@ resource "nsxt_policy_ip_address_allocation" "this" {
 module "vm" {
   source = "github.com/tfo-apj-demos/terraform-vsphere-virtual-machine"
 
-  template = var.vsphere_template_name
+  template          = data.hcp_packer_image.base-windows-2022.cloud_image_id
 
   datacenter        = var.site
   cluster           = var.environment

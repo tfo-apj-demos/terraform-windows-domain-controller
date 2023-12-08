@@ -19,6 +19,11 @@ terraform {
       source  = "hashicorp/boundary"
       version = "1.1.10"
     }
+
+    hcp = {
+      source  = "hashicorp/hcp"
+      version = "0.77.0"
+    }
   }
 }
 
