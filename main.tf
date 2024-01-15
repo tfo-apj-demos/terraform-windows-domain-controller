@@ -43,7 +43,7 @@ module "vm" {
     environment      = "prod"
     site             = "sydney"
     backup_policy    = "daily"
-    tier             = "gold"
+    tier             = "management"
     storage_profile  = "standard"
     security_profile = "web-server"
   }
