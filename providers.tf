@@ -12,17 +12,17 @@ terraform {
 
     ad = {
       source  = "hashicorp/ad"
-      version = "0.4.4"
+      version = "~> 0"
     }
 
     boundary = {
       source  = "hashicorp/boundary"
-      version = "1.1.10"
+      version = "~> 1"
     }
 
     hcp = {
       source  = "hashicorp/hcp"
-      version = "0.77.0"
+      version = "~> 0"
     }
   }
 }
