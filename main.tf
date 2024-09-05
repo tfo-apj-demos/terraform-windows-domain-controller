@@ -2,13 +2,6 @@ data "nsxt_policy_ip_pool" "this" {
   display_name = "10 - gcve-foundations"
 }
 
-data "hcp_packer_image" "base-windows-2022" {
-  bucket_name    = "base-windows-2022"
-  channel        = "latest"
-  cloud_provider = "vsphere"
-  region         = "Datacenter"
-}
-
 data "hcp_packer_artifact" "this" {
   bucket_name  = "base-windows-2022"
   channel_name = "latest"
