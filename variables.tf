@@ -38,8 +38,8 @@ variable "tier" {
   description = "The tier of resources allocated to the VM, such as 'gold', 'silver', 'gold' or 'management'."
   type        = string
   validation {
-    condition     = contains(["gold", "silver", "bronze", "management"], var.tier)
-    error_message = "Tier must be one of 'gold', 'silver', 'bronze', or 'management'."
+    condition     = contains(["gold", "silver", "bronze", "Demo Management"], var.tier)
+    error_message = "Tier must be one of 'gold', 'silver', 'bronze', or 'Demo Management'."
   }
 }
 
