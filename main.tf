@@ -9,6 +9,13 @@ data "hcp_packer_image" "base-windows-2022" {
   region         = "Datacenter"
 }
 
+data "hcp_packer_artifact" "this" {
+  bucket_name  = "base-windows-2022"
+  channel_name = "latest"
+  platform     = "vsphere"
+  region       = "Datacenter"
+}
+
 resource "nsxt_policy_ip_address_allocation" "this" {
   display_name = "dc-0"
   description  = "Terraform provisioned Ip Address Allocation"
@@ -19,7 +26,7 @@ module "vm" {
   source  = "app.terraform.io/tfo-apj-demos/virtual-machine/vsphere"
   version = "1.3.5"
 
-  template          = data.hcp_packer_image.base-windows-2022.cloud_image_id
+  template          = data.hcp_packer_artifact.this.external_identifier
   datacenter        = var.site
   cluster           = var.environment
   resource_pool     = var.tier
