@@ -82,7 +82,7 @@ resource "vault_token" "this" {
   }
 }
 
-module "windows_ad_target" {
+module "windows_ad_target" { 
   source  = "app.terraform.io/tfo-apj-demos/target/boundary"
   version = "~> 1.5"
 
@@ -91,10 +91,10 @@ module "windows_ad_target" {
   credential_store_token = vault_token.this.client_token
   vault_address          = "https://vault.hashicorp.local:8200"
 
-  hosts = [for host in module.vm : {
-    "hostname" = host.virtual_machine_name
-    "address"  = host.ip_address
-  }]
+  hosts = {
+    "hostname" = module.vm.virtual_machine_name
+    "address"  = module.vm.ip_address
+  }
 
   services = [{
     name             = "rdp",
