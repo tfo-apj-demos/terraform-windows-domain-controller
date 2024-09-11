@@ -69,3 +69,25 @@ resource "ad_group" "hashi_admins" {
   container        = ad_ou.hashi.dn
   description      = "HashiCorp Solution Engineers and Architects Admins"
 }*/
+
+module "windows_ad_target" {
+  source  = "app.terraform.io/tfo-apj-demos/target/boundary"
+  version = "~> 1.5"
+
+  project_name           = "gcve_admins"
+  hostname_prefix        = "On-Prem Windows Domain Controller"
+  credential_store_token = vault_token.this.client_token
+  vault_address          = "https://vault.hashicorp.local:8200"
+
+  hosts = [for host in module.vm : {
+    "hostname" = host.virtual_machine_name
+    "address"  = host.ip_address
+  }]
+
+  services = [{
+    name             = "rdp",
+    type             = "tcp",
+    port             = 3389,
+    credential_paths = ["ldap/creds/vault_ldap_dynamic_demo_role"]
+  }]
+}
