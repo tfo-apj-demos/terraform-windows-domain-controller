@@ -100,6 +100,5 @@ module "windows_ad_target" {
     name             = "rdp",
     type             = "tcp",
     port             = 3389,
-    credential_paths = ["ldap/creds/vault_ldap_dynamic_demo_role"]
   }]
 }
