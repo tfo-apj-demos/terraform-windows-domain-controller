@@ -111,3 +111,13 @@ variable "dns_suffix_list" {
   description = "A list of DNS suffixes for the VM."
   type        = list(string)
 }
+
+variable "boundary_address" {
+  type = string
+  description = "value of boundary address"
+}
+
+variable "boundary_token" {
+  type = string
+  description = "value of boundary token"
+}

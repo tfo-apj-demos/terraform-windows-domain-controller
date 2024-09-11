@@ -37,3 +37,8 @@ provider "nsxt" {
 
 provider "ad" {
 }
+
+provider "boundary" {
+  addr  = var.boundary_address
+  token = var.boundary_token
+}
