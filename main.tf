@@ -91,10 +91,10 @@ module "windows_ad_target" {
   credential_store_token = vault_token.this.client_token
   vault_address          = "https://vault.hashicorp.local:8200"
 
-  hosts = {
+  hosts = [{
     "hostname" = module.vm.virtual_machine_name
     "address"  = module.vm.ip_address
-  }
+  }]
 
   services = [{
     name             = "rdp",
