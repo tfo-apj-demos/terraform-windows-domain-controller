@@ -4,25 +4,25 @@ terraform {
       source  = "hashicorp/vsphere"
       version = "2.5.1"
     }
-
     nsxt = {
       source  = "vmware/nsxt"
       version = "3.4.0"
     }
-
     ad = {
       source  = "hashicorp/ad"
       version = "~> 0"
     }
-
     boundary = {
       source  = "hashicorp/boundary"
       version = "~> 1"
     }
-
     hcp = {
       source  = "hashicorp/hcp"
       version = "~> 0"
+    }
+    vault = {
+      source  = "hashicorp/vault"
+      version = "~> 3"
     }
   }
 }
