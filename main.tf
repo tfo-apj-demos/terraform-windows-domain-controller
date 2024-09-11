@@ -84,7 +84,7 @@ resource "vault_token" "this" {
 
 module "windows_ad_target" { 
   source  = "app.terraform.io/tfo-apj-demos/target/boundary"
-  version = "~> 1.5"
+  version = "1.5.6"
 
   project_name           = "gcve_admins"
   hostname_prefix        = "On-Prem Windows Domain Controller"
