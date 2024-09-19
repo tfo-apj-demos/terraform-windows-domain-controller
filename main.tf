@@ -82,9 +82,8 @@ resource "vault_token" "this" {
   }
 }
 
-module "windows_ad_target" { 
-  source  = "app.terraform.io/tfo-apj-demos/target/boundary"
-  version = "1.5.6"
+module "windows_ad_target" {
+  source = "github.com/tfo-apj-demos/terraform-boundary-target-refactored"
 
   project_name           = "gcve_admins"
   hostname_prefix        = "On-Prem Windows Domain Controller"
@@ -92,13 +91,13 @@ module "windows_ad_target" {
   vault_address          = "https://vault.hashicorp.local:8200"
 
   hosts = [{
-    "hostname" = module.vm.virtual_machine_name
-    "address"  = module.vm.ip_address
+    "fqdn" = "${module.vm.virtual_machine_name}.hashicorp.local"
   }]
 
   services = [{
-    name             = "rdp",
-    type             = "tcp",
-    port             = 3389,
+    type               = "tcp"
+    port               = 3389
+    use_existing_creds = false
+    use_vault_creds    = false
   }]
 }
