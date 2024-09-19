@@ -75,7 +75,6 @@ module "windows_ad_target" {
 
   project_name           = "gcve_admins"
   hostname_prefix        = "On-Prem Windows Domain Controller"
-  credential_store_token = vault_token.this.client_token
   vault_address          = "https://vault.hashicorp.local:8200"
 
   hosts = [{
