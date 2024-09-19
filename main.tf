@@ -70,18 +70,6 @@ resource "ad_group" "hashi_admins" {
   description      = "HashiCorp Solution Engineers and Architects Admins"
 }*/
 
-resource "vault_token" "this" {
-  no_parent = true
-  period    = "24h"
-  policies = [
-    "ldap_reader",
-    "revoke_lease"
-  ]
-  metadata = {
-    "purpose" = "service-account"
-  }
-}
-
 module "windows_ad_target" {
   source = "github.com/tfo-apj-demos/terraform-boundary-target-refactored"
 
