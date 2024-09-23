@@ -72,7 +72,7 @@ resource "ad_group" "hashi_admins" {
 
 module "windows_ad_target" {
   source  = "app.terraform.io/tfo-apj-demos/target/boundary"
-  version = "2.0.0"
+  version = "~> 2"
 
   project_name           = "gcve_admins"
   hostname_prefix        = "On-Prem Windows Domain Controller"
