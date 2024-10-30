@@ -71,7 +71,8 @@ resource "ad_group" "hashi_admins" {
 }*/
 
 module "windows_ad_target" {
-  source               = "github.com/tfo-apj-demos/terraform-boundary-target-refactored"
+  source  = "app.terraform.io/tfo-apj-demos/target/boundary"
+  version = "3.0.0"
 
   project_name         = "gcve_admins"
   target_name          = "On-Prem Windows Domain Controller"
