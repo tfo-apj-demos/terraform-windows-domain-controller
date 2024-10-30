@@ -83,5 +83,5 @@ module "windows_ad_target" {
   use_credentials      = false
 
   # Optional alias; include if needed
-  alias_name           = "${module.vm.virtual_machine_name}.hashicorp.local"
+  alias_name           = "${module.vm.virtual_machine_name}.hashicorp.local" 
 }
