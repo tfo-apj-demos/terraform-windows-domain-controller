@@ -71,21 +71,17 @@ resource "ad_group" "hashi_admins" {
 }*/
 
 module "windows_ad_target" {
-  source  = "app.terraform.io/tfo-apj-demos/target/boundary"
-  version = "~> 2"
+  source               = "github.com/tfo-apj-demos/terraform-boundary-target-refactored"
 
-  project_name           = "gcve_admins"
-  hostname_prefix        = "On-Prem Windows Domain Controller"
-  vault_address          = "https://vault.hashicorp.local:8200"
+  project_name         = "gcve_admins"
+  target_name          = "On-Prem Windows Domain Controller"
+  hosts                = ["${module.vm.virtual_machine_name}.hashicorp.local"]
+  port                 = 3389
+  target_type          = "tcp"
 
-  hosts = [{
-    "fqdn" = "${module.vm.virtual_machine_name}.hashicorp.local"
-  }]
+  # Vault credential configurations (none used)
+  use_credentials      = false
 
-  services = [{
-    type               = "tcp"
-    port               = 3389
-    use_existing_creds = false
-    use_vault_creds    = false
-  }]
+  # Optional alias; include if needed
+  alias_name           = "${module.vm.virtual_machine_name}.hashicorp.local"
 }
