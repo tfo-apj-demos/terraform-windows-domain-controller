@@ -113,11 +113,17 @@ variable "dns_suffix_list" {
 }
 
 variable "boundary_address" {
-  type        = string
-  description = "value of boundary address"
+  type = string
 }
 
-variable "boundary_token" {
-  type        = string
-  description = "value of boundary token"
+variable "service_account_authmethod_id" {
+  type = string
+}
+
+variable "service_account_name" {
+  type = string
+}
+
+variable "service_account_password" {
+  type = string
 }
